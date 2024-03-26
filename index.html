@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riellys Smoothie House</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <!--<link rel="stylesheet" href="styles.css">-->
+  <script src="js/script.js" defer></script>
 </head>
 <body>
   <h1>Smoothie Order Form</h1>
@@ -15,47 +15,44 @@
     <fieldset id="size">
         <legend>Size</legend>
         <label>
-          <input type="radio" name="size" value="small">Small
-        </label>
-        <label>
-          <input type="radio" name="size" value="medium">Medium
-        </label>
-        <label>
-          <input type="radio" name="size" value="large">Large
+          <input type="radio" name="size" value="Small">Small $4.00
+          <input type="radio" name="size" value="Medium">Medium $6.00
+          <input type="radio" name="size" value="Large">Large $8.00
         </label>
     </fieldset>
     <!-- base of smoothie -->
     <fieldset id="base">
         <legend>Base</legend>
         <label>
-          <input type="radio" name="base" value="chocolate">Chocolate Milk
-          <input type="radio" name="base" value="whole">Whole Milk
-          <input type="radio" name="base" value="almond">Almond Milk
-          <input type="radio" name="base" value="lactoseFree">Lactose Free Milk
+          <input type="radio" name="base" value="Chocolate Milk">Chocolate Milk +$1.00
+          <input type="radio" name="base" value="Whole Milk">Whole Milk
+          <input type="radio" name="base" value="Almond Milk">Almond Milk +$1.00
+          <input type="radio" name="base" value="LactoseFree Milk">Lactose Free Milk
         </label>
     </fieldset>
     <!-- ingredients -->
     <fieldset id="ingredients">
         <legend>Ingredients</legend>
         <label>
-          <input type="checkbox" name="ingredients" value="strawberries">Strawberries
-          <input type="checkbox" name="ingredients" value="banana">Banana
-          <input type="checkbox" name="ingredients" value="pineapple">Pineapple
-          <input type="checkbox" name="ingredients" value="mango">Mango 
-          <input type="checkbox" name="ingredients" value="blueberries">Blueberries
-          <input type="checkbox" name="ingredients" value="raspberries">Raspberries
-          <input type="checkbox" name="ingredients" value="kiwi">Kiwi
-          <input type="checkbox" name="ingredients" value="grapefruit">blackberries
+          <input type="checkbox" name="ingredients" value="Strawberries">Strawberries
+          <input type="checkbox" name="ingredients" value="Banana">Banana
+          <input type="checkbox" name="ingredients" value="Pineapple">Pineapple
+          <input type="checkbox" name="ingredients" value="Mango">Mango 
+          <input type="checkbox" name="ingredients" value="Blueberries">Blueberries
+          <input type="checkbox" name="ingredients" value="Raspberries">Raspberries
+          <input type="checkbox" name="ingredients" value="Kiwi">Kiwi
+          <input type="checkbox" name="ingredients" value="Blackberries">Blackberries
         </label>
+        <p>All ingredients are $0.50</p>
     </fieldset>
     <!-- Booster -->
     <fieldset id="booster">
         <legend>Booster</legend>
-        <h2>Extra Charges May Apply</h2>
         <label>
-          <input type="checkbox" name="booster" value="immunity">Immunity Booster +$1.50
-          <input type="checkbox" name="booster" value="protein">Whey protein +$3.00
-          <input type="checkbox" name="booster" value="energy">Energy Boost +$1.50
+          <input type="checkbox" name="booster" value="Immunity Booster">Immunity Booster +$1.50
+          <input type="checkbox" name="booster" value="Whey Protein">Whey protein +$3.00
+          <input type="checkbox" name="booster" value="Energy Boost">Energy Boost +$1.50
+          <input type="checkbox" name="booster" value="NoBoost"> No Boost
     </fieldset>
     <!-- Name for order -->
     <fieldset id="orderName">
