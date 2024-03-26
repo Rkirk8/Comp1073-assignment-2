@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <p>Ingredients: ${ingredients.join(', ')}</p>
             <p>Booster: ${booster.join(', ')}</p>
             <p>Total Cost: $${totalCost.toFixed(2)}</p>
+            <p>Your order will be ready for pickup in 30 minutes.<br>Thank you for choosing Rielly's Smoothie House.
         `;
 
         output.innerHTML = orderDetails;
