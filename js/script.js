@@ -1,19 +1,19 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('smoothie-form');
-    const output = document.getElementById('smoothie-output');
+    const outputDiv = document.getElementById('smoothie-output');
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent form submission
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
 
         // Get form data
         const formData = new FormData(form);
 
-        // Process form data
+        // Extract selected options
         const size = formData.get('size');
         const base = formData.get('base');
         const ingredients = formData.getAll('ingredients');
-        const booster = formData.getAll('booster');
-        const name = formData.get('name');
+        const boosters = formData.getAll('booster');
+        const orderName = formData.get('name');
 
         // Calculate total cost
         let totalCost = calculateTotalCost(size, base, ingredients, boosters);
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
 function calculateTotalCost(size, base, ingredients, boosters) {
     let totalCost = 0;
 
-    // Add base cost
+    // Add size cost
     if (size === 'Small') totalCost += 4;
     else if (size === 'Medium') totalCost += 6;
     else if (size === 'Large') totalCost += 8;
 
     // Add base extra cost
     if (['Chocolate Milk', 'Almond Milk'].includes(base)) totalCost += 1;
-
+    
     // Add ingredient cost
     totalCost += ingredients.length * 0.5;
 
