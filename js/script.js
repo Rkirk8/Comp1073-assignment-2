@@ -16,33 +16,49 @@ document.addEventListener('DOMContentLoaded', function () {
         const name = formData.get('name');
 
         // Calculate total cost
-        let totalCost = 0;
-        if (size === 'small') {
-            totalCost += 4;
-        } else if (size === 'medium') {
-            totalCost += 6;
-        } else if (size === 'large') {
-            totalCost += 8;
-        }
+        let totalCost = calculateTotalCost(size, base, ingredients, boosters);
 
-        if (base === 'chocolate' || base === 'almond') {
-            totalCost += 1;
-        }
-
-        totalCost += ingredients.length * 0.5;
-        totalCost += booster.length * 1.5;
-
-        // Display order details
-        const orderDetails = `
-            <h2>Order Summary for ${name}</h2>
-            <p>Size: ${size}</p>
-            <p>Base: ${base}</p>
-            <p>Ingredients: ${ingredients.join(', ')}</p>
-            <p>Booster: ${booster.join(', ')}</p>
-            <p>Total Cost: $${totalCost.toFixed(2)}</p>
-            <p>Your order will be ready for pickup in 30 minutes.<br>Thank you for choosing Rielly's Smoothie House.
-        `;
-
-        output.innerHTML = orderDetails;
+        // Prepare and display order summary
+        const orderSummary = generateOrderSummary(orderName, size, base, ingredients, boosters, totalCost);
+        outputDiv.innerHTML = orderSummary;
     });
 });
+
+function calculateTotalCost(size, base, ingredients, boosters) {
+    let totalCost = 0;
+
+    // Add base cost
+    if (size === 'Small') totalCost += 4;
+    else if (size === 'Medium') totalCost += 6;
+    else if (size === 'Large') totalCost += 8;
+
+    // Add base extra cost
+    if (['Chocolate Milk', 'Almond Milk'].includes(base)) totalCost += 1;
+
+    // Add ingredient cost
+    totalCost += ingredients.length * 0.5;
+
+    // Add booster cost
+    totalCost += boosters.length * 1.5;
+
+    return totalCost;
+}
+
+function generateOrderSummary(name, size, base, ingredients, boosters, totalCost) {
+    const sizeString = `Size: ${size}`;
+    const baseString = `Base: ${base}`;
+    const ingredientsString = `Ingredients: ${ingredients.join(', ')}`;
+    const boostersString = `Boosters: ${boosters.join(', ')}`;
+    const totalCostString = `Total Cost: $${totalCost.toFixed(2)}`;
+
+    const orderSummary = `
+        <h2>Smoothie Order Summary for ${name}</h2>
+        <p>${sizeString}</p>
+        <p>${baseString}</p>
+        <p>${ingredientsString}</p>
+        <p>${boostersString}</p>
+        <p>${totalCostString}</p>
+    `;
+
+    return orderSummary;
+}
